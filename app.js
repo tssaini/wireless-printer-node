@@ -36,7 +36,7 @@ app.post('/upload', function(req, res) {
 
 
 async function printFile(file) {
-    const { stdout, stderr } = await exec(`lp ${file}`);
+    const { stdout, stderr } = await exec(`lp \"${file}\"`);
     console.log('stdout:', stdout);
     console.log('stderr:', stderr);
     if(stderr) throw stderr;
