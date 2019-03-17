@@ -1,6 +1,5 @@
 const express = require('express')
 const fileUpload = require('express-fileupload');
-const printer = require('printer');
 const app = express()
 const port = 3000
 
@@ -19,7 +18,7 @@ app.post('/upload', function(req, res) {
   var sampleFile = req.files.sampleFile;
 
   // Use the mv() method to place the file somewhere on your server
-  var file = `C:\\tmp\\${sampleFile.name}`;
+  var file = `/tmp/${sampleFile.name}`;
   sampleFile.mv(file, function(err) {
     if (err)
       return res.status(500).send(err);
